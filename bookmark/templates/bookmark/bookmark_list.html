@@ -1,0 +1,42 @@
+<p></p>                # paragraph을 나타내는 태그
+<table class="table">     # 테이블을 만들기 위해 사용되는 태그
+    <thead>            # 테이블의 머리글을 만드는 태그
+        <tr>           # 테이블의 row을 나타내는 태그
+            <th scope="col">#</th>      # th : aheader cell을 나타내는 태그
+            <th scope="col">Site</th>    # scope="col" : column의 범위를 설명하는 태그
+            <th scope="col">URL</th>
+            <th scope="col">Modify</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+        {% for bookmark in object_list %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td><a href="#">{{bookmark.site_name}}</a></td>
+                <td><a href="{{bookmark.url}}"target="_blank">{{bookmark.url}}</a></td>
+                <td><a href="#" class="btn btn-success btn-sm">Modify</a></td>
+                <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
+            </tr>
+        {% endfor %}
+</table>
+
+<!--
+위의 코드는 Django 템플릿 언어를 사용하여 HTML 템플릿을 작성한 것.
+The <p></p> tag is used to denote a paragraph.
+The <table> tag is used to create a table. The class="table" attribute is used to apply a CSS style provided by Bootstrap.
+The <thead> tag is used to create the header of the table. The <tr> tag represents a row of the table, and the <th> tag represents a header cell. The scope="col" attribute specifies the scope of the column.
+The {% for bookmark in object_list %} statement is a for loop written in the Django template language. object_list is the list of objects passed to the template, and bookmark is the variable that represents each object in the loop.
+{{forloop.counter}} is a variable(변수) that represents the index of the current iteration in the loop.
+The <a> tag is used to create a hyperlink. The href attribute specifies the target URL of the link. The target="_blank" attribute is used to open the link in a new tab.
+<a href="#" class="btn btn-success btn-sm">Modify</a> is a tag that creates a button with a style provided by Bootstrap. The class="btn btn-success btn-sm" attribute specifies the style of the button.
+The {% endfor %} statement marks the end of the for loop.
+---------
+<p></p> 태그는 단락(paragraph)을 나타내는 태그입니다.
+<table> 태그는 표(table)를 나타내는 태그입니다. class="table"은 Bootstrap에서 제공하는 CSS 스타일을 적용하기 위한 클래스입니다.
+<thead> 태그는 표의 머리글을 나타내는 태그입니다. <tr> 태그는 표의 한 행(row)을 나타내며, <th> 태그는 표의 헤더(header) 셀을 나타냅니다. scope="col"은 열(column)의 범위를 나타내는 속성입니다.
+{% for bookmark in object_list %} 부분은 Django 템플릿 언어에서 for문을 사용하여 반복 작업을 수행하는 구문입니다. object_list는 템플릿에 전달된 객체 리스트입니다. bookmark는 객체를 나타내는 변수 이름입니다.
+{{forloop.counter}}는 현재 반복 작업의 인덱스를 나타내는 변수입니다.
+<a> 태그는 하이퍼링크를 나타내는 태그입니다. href 속성은 링크의 대상 URL을 지정합니다. target="_blank"는 링크를 새 탭에서 열도록 지정하는 속성입니다.
+<a href="#" class="btn btn-success btn-sm">Modify</a>는 Bootstrap에서 제공하는 스타일을 적용한 버튼을 나타내는 태그입니다. class="btn btn-success btn-sm"은 버튼에 적용할 스타일을 지정하는 클래스입니다.
+{% endfor %}는 for문의 끝을 나타내는 구문입니다.
+-->
